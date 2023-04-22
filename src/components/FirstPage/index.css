@@ -1,0 +1,29 @@
+.movie-img {
+  height: 200px;
+}
+.img-card-container {
+  display: flex;
+  margin-bottom: 20px;
+}
+.movie-img-card {
+  width: 60%;
+  margin-right: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.nav-button {
+  background-color: aqua;
+  margin-right: 30px;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+.links-container {
+  display: flex;
+  justify-content: center;
+}
+.about-movie {
+  font-family: 'Roboto';
+}

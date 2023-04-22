@@ -1,0 +1,17 @@
+.booking-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.booking-form {
+  width: 50%;
+  text-align: center;
+}
+.input-el-user {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.input-el {
+  margin-top: 10px;
+}
