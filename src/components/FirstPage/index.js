@@ -29,17 +29,27 @@ const FirstPage = props => {
             <div className="links-container">
               {previousepisode !== undefined && (
                 <button type="button" className="nav-button">
-                  <a href={previousepisode.href}>Previous Episode</a>
+                  <a
+                    href={previousepisode.href}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Previous Episode
+                  </a>
                 </button>
               )}
               {selfSrc !== undefined && (
                 <button type="button" className="nav-button">
-                  <a href={selfSrc.href}>Now</a>
+                  <a href={selfSrc.href} target="_blank" rel="noreferrer">
+                    Now
+                  </a>
                 </button>
               )}
               {nextepisode !== undefined && (
                 <button type="button" className="nav-button">
-                  <a href={nextepisode.href}>Next Episode</a>
+                  <a href={nextepisode.href} target="_blank" rel="noreferrer">
+                    Next Episode
+                  </a>
                 </button>
               )}
             </div>

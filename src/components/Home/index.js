@@ -1,3 +1,4 @@
+import {v4 as uuidv4} from 'uuid'
 import {Component} from 'react'
 import FirstPage from '../FirstPage'
 import './index.css'
@@ -27,7 +28,11 @@ class Home extends Component {
   fetchData = async () => {
     const response = await fetch('https://api.tvmaze.com/search/shows?q=all')
     const data = await response.json()
-    this.setState({intialData: data})
+    const dataWithUniqueObj = data.map(eachObj => ({
+      ...eachObj,
+      id: uuidv4(),
+    }))
+    this.setState({intialData: dataWithUniqueObj})
   }
 
   render() {
@@ -35,24 +40,24 @@ class Home extends Component {
     return (
       <div>
         <h1 className="main-heading">Movies Booking App</h1>
-        <ul className="home-container">
-          {intialVal ? (
-            intialData.length > 0 &&
-            intialData.map(eachItemVal => (
-              <FirstPage
-                eachItem={eachItemVal}
-                key={eachItemVal.score}
-                onChangeIntialVal={this.onChangeIntialVal}
-              />
-            ))
-          ) : (
-            <Booking
-              movieName={movieName}
-              onChangeIntialVal={this.onChangeIntialVal}
-              summaryPass={summaryVal}
-            />
-          )}
-        </ul>
+        {intialVal ? (
+          <ul className="home-container">
+            {intialData.length > 0 &&
+              intialData.map(eachItemVal => (
+                <FirstPage
+                  eachItem={eachItemVal}
+                  key={eachItemVal.id}
+                  onChangeIntialVal={this.onChangeIntialVal}
+                />
+              ))}
+          </ul>
+        ) : (
+          <Booking
+            movieName={movieName}
+            onChangeIntialVal={this.onChangeIntialVal}
+            summaryPass={summaryVal}
+          />
+        )}
       </div>
     )
   }

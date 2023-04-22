@@ -14,7 +14,8 @@
     "colorette": "2.0.20",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "react-router-dom": "5.2.0"
+    "react-router-dom": "5.2.0",
+    "uuid": "9.0.0"
   },
   "devDependencies": {
     "eslint-config-airbnb": "18.2.1",
