@@ -33,24 +33,27 @@ class Home extends Component {
   render() {
     const {intialData, intialVal, movieName, summaryVal} = this.state
     return (
-      <ul className="home-container">
-        {intialVal ? (
-          intialData.length > 0 &&
-          intialData.map(eachItemVal => (
-            <FirstPage
-              eachItem={eachItemVal}
-              key={eachItemVal.score}
+      <div>
+        <h1 className="main-heading">Movies Booking App</h1>
+        <ul className="home-container">
+          {intialVal ? (
+            intialData.length > 0 &&
+            intialData.map(eachItemVal => (
+              <FirstPage
+                eachItem={eachItemVal}
+                key={eachItemVal.score}
+                onChangeIntialVal={this.onChangeIntialVal}
+              />
+            ))
+          ) : (
+            <Booking
+              movieName={movieName}
               onChangeIntialVal={this.onChangeIntialVal}
+              summaryPass={summaryVal}
             />
-          ))
-        ) : (
-          <Booking
-            movieName={movieName}
-            onChangeIntialVal={this.onChangeIntialVal}
-            summaryPass={summaryVal}
-          />
-        )}
-      </ul>
+          )}
+        </ul>
+      </div>
     )
   }
 }
